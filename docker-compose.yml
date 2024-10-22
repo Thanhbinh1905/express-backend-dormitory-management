@@ -1,0 +1,22 @@
+services:
+  app:
+    build: .
+    ports:
+      - "3001:3001"
+    depends_on:
+      - mysql
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - .:/usr/src/app
+
+  mysql:
+    image: mysql:8.0.40-debian
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: quanlykytucxa2024
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./mysql-init:/docker-entrypoint-initdb.d
