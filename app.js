@@ -7,10 +7,6 @@ const app = express();
 
 const indexRouter = require("./routes/index.router");
 
-// Route ví dụ
-app.get("/api", (req, res) => {
-  res.send("Hello World!");
-});
 app.get("/api", indexRouter);
 
 // Lắng nghe server

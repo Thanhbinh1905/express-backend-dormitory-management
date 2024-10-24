@@ -1,7 +1,12 @@
 const express = require("express");
-const route = express.Router();
+const router = express.Router();
 const staffController = require("../controllers/staff.controller");
 
-route.get("/", staffController.getAllStaffs);
+router.get("/", staffController.getAllStaffs);
+router.get('/:id', staffController.getById);
+router.post('/', staffController.create);
+router.patch('/:id', staffController.update);
+router.delete('/:id', staffController.delete);
+router.put('/:id/password', staffController.changePassword);
 
-module.exports = route;
+module.exports = router;
